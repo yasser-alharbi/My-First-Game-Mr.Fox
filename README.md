@@ -1,7 +1,7 @@
 # My First Game: Mr. Fox 🦊
 Welcome to the repository for "Mr. Fox", a delightful 2D platformer game where players navigate through various challenges and enemies to reach their goal.
 
-Overview
+# Overview:
 In "Mr. Fox", players take on the role of the titular character, Mr. Fox, as they traverse different terrains, avoid obstacles, and defeat enemies. From hopping bunnies to flying vultures, the game offers a variety of challenges that players must overcome.
 
 Features
