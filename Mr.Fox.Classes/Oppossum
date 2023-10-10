@@ -1,0 +1,76 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Oppossum : Enemy
+{
+    [SerializeField] private float leftCap; // Cap = capcity
+    [SerializeField] private float rightCap;
+    [SerializeField] private float oppoSpeed = 4f;
+    
+    private Collider2D coll;
+   
+
+    protected override void Start()
+    {
+        base.Start();
+        coll = GetComponent<Collider2D>();
+    }
+
+    private bool facingLeft = true;
+
+
+    private void Update()
+    {
+        
+            Move();
+        
+    }
+
+    private void Move()
+    {
+        if (facingLeft)
+        { // Moving Left
+            if (transform.position.x > leftCap)
+            {
+                if (transform.localScale.x != 1)
+                {
+                    transform.localScale = new Vector3(1, 1);
+
+                }
+                
+                    rb.velocity = new Vector2(-oppoSpeed, rb.velocity.y);
+     
+            }
+            else
+            {
+                facingLeft = false;
+            }
+            
+        }
+
+        else
+        { // Moving right
+            if (transform.position.x < rightCap)
+            {
+
+                if (transform.localScale.x != -1)
+                {
+                    transform.localScale = new Vector3(-1, 1);
+
+                }
+               
+                    rb.velocity = new Vector2(oppoSpeed, rb.velocity.y);
+
+            }
+            else
+            {
+                facingLeft = true;
+            }
+        }
+    }
+    
+
+    
+    
+}

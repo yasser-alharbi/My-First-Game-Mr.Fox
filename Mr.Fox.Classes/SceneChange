@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneChange : MonoBehaviour
+{
+    [SerializeField] private string sceneName;
+   
+    public static int expected = 10;
+
+
+
+    private void Start()
+    {
+        UIKeeper.perm.stageNumber.text = UIKeeper.perm.stage.ToString();
+    }
+    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Player" && UIKeeper.perm.cherries == expected)
+        {
+            SceneManager.LoadScene(sceneName); // move 
+
+           expected += 10;
+            UIKeeper.perm.stage++;
+            UIKeeper.perm.stageNumber.text = UIKeeper.perm.stage.ToString();
+
+            UIKeeper.perm.health += 3;
+            UIKeeper.perm.healthBar.text = UIKeeper.perm.health.ToString(); // to show it in the screen //
+        }
+       
+    }
+}

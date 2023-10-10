@@ -1,0 +1,93 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Frog : Enemy
+{
+    [SerializeField] private float leftCap; // Cap = capcity
+    [SerializeField] private float rightCap;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private float jumpLength;
+    [SerializeField] private LayerMask ground;
+
+    private Collider2D coll;
+
+    protected override void Start()
+    {
+        base.Start();
+        coll = GetComponent<Collider2D>();
+    }
+
+    private bool facingLeft = true;
+
+    private void Update()
+    {
+        // Transiton from Jump to Fall 
+        if (anim.GetBool("Jumping"))
+        {
+            if (rb.velocity.y < .1f)
+            {
+                anim.SetBool("Falling", true);
+                anim.SetBool("Jumping", false);
+            }
+        }
+
+
+        // Transiton from Fall to Idle
+        if (anim.GetBool("Falling") && coll.IsTouchingLayers(ground))
+        {
+            anim.SetBool("Falling", false);
+        }
+    }
+
+    private void Move()
+    {
+        if (facingLeft)
+        { // For the Left // 
+            if (transform.position.x > leftCap)
+            {
+                // To make sure that the frog is facing right location, and if it is not, then face the right direction 
+                if (transform.localScale.x != 1)
+                {
+                    transform.localScale = new Vector3(1, 1);
+                }
+                // Now test if we are on the ground, if so then Jump!
+                if (coll.IsTouchingLayers(ground))
+                {
+                    rb.velocity = new Vector2(-jumpLength, jumpHeight);
+                    anim.SetBool("Jumping", true);
+                }
+            }
+            else
+            {
+                facingLeft = false;
+            }
+        }
+
+        else
+        { // For the Right //
+            if (transform.position.x < rightCap)
+            {
+                // To make sure that the frog is facing right location, and if it is not, then face the right direction 
+                if (transform.localScale.x != -1)
+                {
+                    transform.localScale = new Vector3(-1, 1);
+                }
+                // Now test if we are on the ground, if so then Jump!
+                if (coll.IsTouchingLayers(ground))
+                {
+                    rb.velocity = new Vector2(jumpLength, jumpHeight);
+                    anim.SetBool("Jumping", true);
+                }
+            }
+            else
+            {
+                facingLeft = true;
+            }
+        }
+    }
+
+    
+   
+
+}

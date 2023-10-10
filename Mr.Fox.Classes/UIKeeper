@@ -1,0 +1,89 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+public class UIKeeper : MonoBehaviour
+{
+    public int cherries = 0;
+    public int health = 5;
+    public TextMeshProUGUI cherryText;
+    public TextMeshProUGUI healthBar;
+    public int stage = 1;
+    public TextMeshProUGUI stageNumber;
+
+    public int deathCount = 0;
+    public TextMeshProUGUI deathCounter;
+
+    public static UIKeeper perm;
+
+    private void Start()
+    {
+            DontDestroyOnLoad(gameObject); // To keep the UI (On) in the next scene
+        
+        //Singleton مفرد
+        if (!perm)
+        {
+            perm = this;
+        }
+        else
+        {  
+              //  Destroy(gameObject);
+        }
+    }
+
+    // To reset the cherries
+    public void Reset()
+    {
+        if (stage == 1)
+        {
+            cherries = 0;
+            cherryText.text = cherries.ToString(); 
+        }
+        else if (stage == 2) 
+        {
+            cherries = 10;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 3)
+        {
+            cherries = 20;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 4)
+        {
+            cherries = 30;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 5)
+        {
+            cherries = 40;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 6)
+        {
+            cherries = 50;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 7)
+        {
+            cherries = 60;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 8)
+        {
+            cherries = 70;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 9)
+        {
+            cherries = 80;
+            cherryText.text = cherries.ToString();
+        }
+        else if (stage == 10)
+        {
+            cherries = 90;
+            cherryText.text = cherries.ToString();
+        }
+    }
+}

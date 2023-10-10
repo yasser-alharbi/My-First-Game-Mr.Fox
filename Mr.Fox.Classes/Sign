@@ -1,0 +1,60 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Sign : MonoBehaviour
+{
+
+    [SerializeField] private Image signImage; // to put the sign Image on the screen.
+    public GameObject MessagePanel; // "E" to read 
+    public bool action = false; // the player hasn't picked the sign yet.
+
+
+    private void Start()
+    {
+        MessagePanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (action == true)
+            {
+                MessagePanel.SetActive(false);
+                action = false;
+                signImage.enabled = true;
+                
+            }
+            
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    { // To interact with the sign.
+        if (other.CompareTag("Player"))
+        {
+            MessagePanel.SetActive(true);
+            action = true;
+            
+
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    { // for NOT interacting with the sign.
+        if (other.CompareTag("Player"))
+        {
+            MessagePanel.SetActive(false);
+            action = false;
+            signImage.enabled = false;
+        }
+    }
+
+
+
+
+
+
+}

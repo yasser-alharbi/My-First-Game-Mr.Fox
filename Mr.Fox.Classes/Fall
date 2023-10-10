@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Fall : MonoBehaviour
+{
+   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // to return the player into his respawn //
+            UIKeeper.perm.Reset(); // Losing all the cherries
+            UIKeeper.perm.deathCount++;
+            UIKeeper.perm.deathCounter.text = UIKeeper.perm.deathCount.ToString();
+            player.hurtSound.Play(); 
+        }
+    }
+}
