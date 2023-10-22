@@ -29,12 +29,18 @@ Reach the end of each level to progress.
 # Getting Started
 To get started with the game, simply clone the repository and follow the setup instructions provided in the documentation.
 
+
 # Credits
 Yasser Alharbi: Main Developer
+
 Nawaf Alandejani: Contributor
+
 Sultan Alaqili: Contributor
+
 Abdulaziz Abo Talib: Contributor
+
 Ahmed Subhi: Contributor
+
 
 # Contributing
 Feel free to fork the repository and submit pull requests for any enhancements or bug fixes. We appreciate all your contributions!
