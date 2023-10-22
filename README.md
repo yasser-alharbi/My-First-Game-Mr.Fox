@@ -31,13 +31,9 @@ To get started with the game, simply clone the repository and follow the setup i
 
 # Credits
 Yasser Alharbi: Main Developer
-
 Nawaf Alandejani: Contributor
-
 Sultan Alaqili: Contributor
-
 Abdulaziz Abo Talib: Contributor
-
 Ahmed Subhi: Contributor
 
 # Contributing
