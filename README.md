@@ -40,7 +40,7 @@ Sultan Alaqili: Contributor
 
 Abdulaziz Abo Talib: Contributor
 
-Ahmed Subhi: Contributor
+Abdullah Subhi: Contributor
 
 
 ## Contributing
