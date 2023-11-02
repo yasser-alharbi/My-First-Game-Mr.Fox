@@ -34,7 +34,7 @@ To get started with the game, simply clone the repository and follow the setup i
 Yasser Alharbi:
 Main Developer
 
-Nawaf Alandejani: Contributor
+Nawaf Alandijany: Contributor
 
 Sultan Alaqili: Contributor
 
